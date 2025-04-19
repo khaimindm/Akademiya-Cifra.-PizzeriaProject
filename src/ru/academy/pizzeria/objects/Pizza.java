@@ -6,19 +6,27 @@ import ru.academy.pizzeria.exceptions.PriceException;
 import ru.academy.pizzeria.exceptions.SizeException;
 
 // Общий класс для всех пицц
-public abstract class Pizza extends Meal {
+public abstract class Pizza extends Meal implements ICooking {
 
     private static final Logger log = LogManager.getLogger(Pizza.class);
-    protected final int size; // Размер пиццы. small - 1, medium - 2, large -3
 
-    public Pizza(String mealName_, int price_, int size_) throws PriceException, SizeException {
+    AvailablePizzaSizesAndTranslation availablePizzaSizesAndTranslation = new AvailablePizzaSizesAndTranslation();
+
+    protected String pizzaSize; // Размер пиццы
+    protected String pizzaSizeTranslation; // Размер пиццы на русском
+
+    public Pizza(String mealName_, int price_, String pizzaSize_) throws PriceException, SizeException {
         super(mealName_, price_);
 
+        // Проверяем имеется ли предоставленное значение размера в Map
         log.debug("Проверяем значение размера пиццы");
-        if (size_ != 1 && size_ != 2 && size_ != 3) {
-            throw new SizeException(size_);
+        if (!availablePizzaSizesAndTranslation.getAvailablePizzaSizesAndTranslation().containsKey(pizzaSize_)) {
+            throw new SizeException(pizzaSize_);
         } else {
-            this.size = size_;
+            this.pizzaSize = pizzaSize_;
+            this.pizzaSizeTranslation = availablePizzaSizesAndTranslation.getAvailablePizzaSizesAndTranslation().
+                    get(pizzaSize_);
         }
     }
+
 }

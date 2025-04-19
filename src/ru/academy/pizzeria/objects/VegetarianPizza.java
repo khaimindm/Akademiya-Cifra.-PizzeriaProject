@@ -8,18 +8,17 @@ import java.text.MessageFormat;
 // Класс вегетарианских пицц
 public class VegetarianPizza extends Pizza implements ICooking {
 
-    PizzaSize pizzaSize = new PizzaSize();
-
     private final boolean isVegetarian;
 
-    public VegetarianPizza(String mealName_, int price_, int size_, boolean isVegetarian_) throws PriceException, SizeException {
-        super(mealName_, price_, size_);
+    public VegetarianPizza(String mealName_, int price_, String pizzaSize_, boolean isVegetarian_) throws PriceException,
+            SizeException {
+        super(mealName_, price_, pizzaSize_);
         this.isVegetarian = isVegetarian_;
     }
 
     @Override
     public void cook() {
         System.out.println(MessageFormat.format("Пицца {0} приготовлена. Размер пиццы: {1}. Вегетарианская пицца",
-                mealName, pizzaSize.convertPizzaSize(size)));
+                mealName, pizzaSizeTranslation));
     }
 }

@@ -21,6 +21,7 @@ public class OrderConfirmation {
         int totalCost = 0;
         boolean decision = false;
         int orderNumber = 0;
+
         System.out.println();
         System.out.println("Клиент: " + nameOfTheClient);
         System.out.println("Состав заказа: ");
@@ -31,8 +32,6 @@ public class OrderConfirmation {
                     meal.getPrice()));
             totalCost += meal.getPrice();
         }
-
-        orderNumber = 0;
 
         System.out.println(MessageFormat.format("Общая стоимость заказа: {0}р.", totalCost));
         System.out.println("Вы подтверждаете заказ?");

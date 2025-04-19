@@ -15,9 +15,9 @@ public class Main {
         try {
 
             // Создаем 3 вида пиццы
-            VegetarianPizza vegetarianPizza = new VegetarianPizza("Маргарита", 570, 2, true);
-            StandardPizza standardPizza = new StandardPizza("Пепперони", 610, 3);
-            SweetPizza sweetPizza = new SweetPizza("Тропикана", 710, 1, true);
+            VegetarianPizza vegetarianPizza = new VegetarianPizza("Маргарита", 570, "small", true);
+            StandardPizza standardPizza = new StandardPizza("Пепперони", 610, "medium");
+            SweetPizza sweetPizza = new SweetPizza("Тропикана", 710, "large", true);
 
             // Создаем нового клиента. Указываем имя и максимальное количество доступных для него заказов
             ClientOrders clientOrders = new ClientOrders("Дмитрий", 5);

@@ -6,7 +6,7 @@ import ru.academy.pizzeria.exceptions.PriceException;
 
 
 // Базовый класс всех блюд. Имеет возможность дельнейшего добавления других кухонь в меню
-public abstract class Meal implements ICooking{
+public abstract class Meal implements ICooking {
 
     private static final Logger log = LogManager.getLogger(Meal.class);
 

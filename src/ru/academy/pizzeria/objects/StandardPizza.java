@@ -8,14 +8,13 @@ import java.text.MessageFormat;
 // Класс стандартных пицц
 public class StandardPizza extends Pizza implements ICooking {
 
-    PizzaSize pizzaSize = new PizzaSize();
-
-    public StandardPizza(String mealName_, int price_, int size_) throws PriceException, SizeException {
-        super(mealName_, price_, size_);
+    public StandardPizza(String mealName_, int price_, String pizzaSize_) throws PriceException,
+            SizeException {
+        super(mealName_, price_, pizzaSize_);
     }
 
     public void cook() {
         System.out.println(MessageFormat.format("Пицца {0} приготовлена. Размер пиццы: {1}.", mealName,
-                pizzaSize.convertPizzaSize(size)));
+                pizzaSizeTranslation));
     }
 }
