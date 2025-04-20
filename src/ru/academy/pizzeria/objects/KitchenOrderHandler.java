@@ -1,17 +1,15 @@
 package ru.academy.pizzeria.objects;
 
 import ru.academy.pizzeria.exceptions.MaxNumberOfOrdersForKitchenException;
+import ru.academy.pizzeria.exceptions.TranslationException;
 
-import java.util.LinkedList;
 import java.util.List;
 
-// Класс кухня, который обрабатывает все заказы
-public class Kitchen {
-
-    List<Meal> allOrders = new LinkedList<>(); // Все заказы для кухни
+// Класс обработки заказов кухни
+public class KitchenOrderHandler extends KitchenOrders {
 
     // Добавляем заказ клиента ко всем заказам для кухни
-    public void addToOrders(List<Meal> clientOrders) throws MaxNumberOfOrdersForKitchenException {
+    public void addToOrders(List<Meal> clientOrders) throws MaxNumberOfOrdersForKitchenException, TranslationException {
 
         allOrders.addAll(clientOrders);
 
@@ -20,6 +18,7 @@ public class Kitchen {
             throw new MaxNumberOfOrdersForKitchenException(allOrders.size());
         }
 
+        // Приготовление заказа
         for (Meal meal : allOrders) {
             meal.cook();
         }
@@ -27,5 +26,4 @@ public class Kitchen {
         allOrders.clear(); // Очищаем список после приготовления
 
     }
-
 }
